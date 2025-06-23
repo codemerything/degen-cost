@@ -12,12 +12,15 @@ export const metadata: Metadata = {
     description: "Convert prices to Solana as you browse the web. A reality check for degens.",
     images: [
       {
-        url: "/images/social-preview.jpg",
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dex-7S41T5PweXrSyRQmkpAGxSU8H37gBZ.png",
         width: 1200,
         height: 630,
         alt: "Degen Cost Social Preview",
       },
     ],
+  },
+  icons: {
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dex-7S41T5PweXrSyRQmkpAGxSU8H37gBZ.png",
   },
 }
 
