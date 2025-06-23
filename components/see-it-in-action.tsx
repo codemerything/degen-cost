@@ -6,7 +6,21 @@ import Image from "next/image"
 
 const carouselItems = [
   {
+    id: 0,
+    type: "video",
+    title: "Preview Video",
+    description: (
+      <>
+        Modern Family: S4 E21. This was a hilarious review of the extension converting a price of prices even in movies to sol by {" "}
+        <a href="https://x.com/ruggedmf" target="_blank" rel="noopener noreferrer" className="underline text-blue-400 hover:text-blue-600">@ruggedmf</a>
+      </>
+    ),
+    video: "https://ik.imagekit.io/mmnldm/Preview.mp4?updatedAt=1750689776306",
+    alt: "Modern Family: S4 E21. This was a hilarious review of the extension converting a price of prices even in movies to sol by",
+  },
+  {
     id: 1,
+    type: "image",
     title: "Tesla Example",
     description: "See Tesla prices converted to SOL automatically",
     image: "/images/tesla.png",
@@ -14,6 +28,7 @@ const carouselItems = [
   },
   {
     id: 2,
+    type: "image",
     title: "Airbnb Example",
     description: "Book accommodations while seeing costs in SOL",
     image: "/images/airbnb.png",
@@ -21,17 +36,11 @@ const carouselItems = [
   },
   {
     id: 3,
+    type: "image",
     title: "Adidas Store",
     description: "Shop for sportswear with prices in Solana",
     image: "/images/adidas.jpeg",
     alt: "Adidas store with SOL prices",
-  },
-  {
-    id: 4,
-    title: "More Examples",
-    description: "See Solana conversion across various e-commerce sites",
-    image: "/images/eg.jpeg",
-    alt: "Various e-commerce examples with SOL prices",
   },
 ]
 
@@ -70,8 +79,18 @@ export default function SeeItInAction() {
               >
                 {carouselItems.map((item) => (
                   <div key={item.id} className="w-full flex-shrink-0">
-                    <div className="aspect-w-16 aspect-h-9">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.alt} fill className="object-contain" priority />
+                    <div className="aspect-w-16 aspect-h-9 flex items-center justify-center bg-black">
+                      {item.type === "video" ? (
+                        <video
+                          src={item.video}
+                          controls
+                          autoPlay
+                          className="w-full h-full object-contain rounded-xl"
+                          poster="/images/poster.png"
+                        />
+                      ) : (
+                        <Image src={item.image || "/placeholder.svg"} alt={item.alt} fill className="object-contain" priority />
+                      )}
                     </div>
                   </div>
                 ))}
